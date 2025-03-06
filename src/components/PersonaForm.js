@@ -4,7 +4,7 @@ import { addPersona, updatePersona, deletePersona } from "../redux/personaSlice"
 import { useNavigate, useParams } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import "../styles/styles.css";
+import "../styles/PersonaForm.css";
 
 const defaultImage = "defaultimage.jpg"; 
 
@@ -58,12 +58,12 @@ const PersonaForm = ({ isEdit }) => {
       dispatch(addPersona(persona));
     }
 
-    navigate("/");
+    navigate("/persona");
   };
 
   const handleDelete = () => {
     dispatch(deletePersona(persona.id));
-    navigate("/");
+    navigate("/persona");
   };
 
   return (
@@ -93,7 +93,7 @@ const PersonaForm = ({ isEdit }) => {
 
         <div className="form-buttons">
           {isEdit && <button className="delete-btn" onClick={handleDelete}>DELETE</button>}
-          <button className="close-btn" onClick={() => navigate("/")}>CLOSE</button>
+          <button className="close-btn" onClick={() => navigate("/persona")}>CLOSE</button>
           <button className="update-btn" onClick={handleSubmit}>{isEdit ? "UPDATE PERSONA" : "CREATE PERSONA"}</button>
         </div>
       </div>
