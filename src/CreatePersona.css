@@ -1,0 +1,59 @@
+.persona-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full-page height */
+    padding: 20px;
+    overflow: hidden; /* Prevents overflow issues */
+  }
+  
+  .persona-form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: auto; /* Enables scrolling if content overflows */
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    flex-grow: 1;
+  }
+  
+  .full-width {
+    grid-column: span 3;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .quill-container {
+    height: 150px;
+  }
+  
+  .image-upload {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border: 2px dashed #ccc;
+    cursor: pointer;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+  }
+  
+  .save-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: sticky;
+    bottom: 10px;
+  }
+  
