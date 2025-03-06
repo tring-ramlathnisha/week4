@@ -1,10 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import personaReducer from "./personaSlice";
 
-export const store = configureStore({
+export default configureStore({
   reducer: {
-    personas: personaReducer, // Ensure this matches your slice file
+    personas: personaReducer,
   },
 });
-
-export default store;
