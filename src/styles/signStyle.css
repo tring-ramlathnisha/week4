@@ -20,8 +20,8 @@
     border-radius: 5px;
   }
   
-  button {
-    width: 100%;
+  .sign-button {
+    width: 50%;
     padding: 10px;
     background-color: #4caf50;
     color: white;
@@ -30,9 +30,9 @@
     cursor: pointer;
   }
   
-  button:hover {
-    background-color: #45a049;
-  }
+ /* button:hover {
+    background-color: #f7fbf7;
+  }*/
   
   p {
     margin-top: 10px;

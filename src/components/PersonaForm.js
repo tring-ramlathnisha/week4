@@ -6,7 +6,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "../styles/PersonaForm.css";
 
-const defaultImage = "defaultimage.jpg"; 
+const defaultImage = "defaultimage.jpg";
 
 const PersonaForm = ({ isEdit }) => {
   const dispatch = useDispatch();
@@ -25,6 +25,9 @@ const PersonaForm = ({ isEdit }) => {
     painPoints: "",
     jobs: "",
     activities: "",
+    lastModified: localStorage.getItem(`persona_${id || Date.now().toString()}_lastModified`)
+      ? new Date(localStorage.getItem(`persona_${id || Date.now().toString()}_lastModified`))
+      : null,
   });
 
   useEffect(() => {
@@ -52,17 +55,21 @@ const PersonaForm = ({ isEdit }) => {
       return;
     }
 
+    const updatedPersona = { ...persona, lastModified: new Date() };
+
     if (isEdit) {
-      dispatch(updatePersona(persona));
+      dispatch(updatePersona(updatedPersona));
     } else {
-      dispatch(addPersona(persona));
+      dispatch(addPersona(updatedPersona));
     }
 
+    localStorage.setItem(`persona_${updatedPersona.id}_lastModified`, updatedPersona.lastModified.toISOString());
     navigate("/persona");
   };
 
   const handleDelete = () => {
     dispatch(deletePersona(persona.id));
+    localStorage.removeItem(`persona_${persona.id}_lastModified`);
     navigate("/persona");
   };
 
@@ -84,7 +91,7 @@ const PersonaForm = ({ isEdit }) => {
           <div className="grid-item"><label>Description</label><ReactQuill value={persona.description} onChange={(value) => handleChange("description", value)} /></div>
           <div className="grid-item"><label>Attitudes/Motivations</label><ReactQuill value={persona.attitudes} onChange={(value) => handleChange("attitudes", value)} /></div>
         </div>
-        <br/>
+        <br />
         <div className="grid-container">
           <div className="grid-item"><label>Pain Points</label><ReactQuill value={persona.painPoints} onChange={(value) => handleChange("painPoints", value)} /></div>
           <div className="grid-item"><label>Jobs/Needs</label><ReactQuill value={persona.jobs} onChange={(value) => handleChange("jobs", value)} /></div>

@@ -24,7 +24,7 @@ const SignUp = () => {
       <form onSubmit={handleSubmit}>
         <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
         <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-        <button type="submit">Sign Up</button>
+        <button className="sign-button"type="submit">Sign Up</button>
       </form>
       <p>
         Already have an account?{" "}

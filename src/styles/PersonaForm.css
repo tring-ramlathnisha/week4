@@ -40,15 +40,36 @@
 
 .form-buttons {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  justify-content: space-between; /* Distribute space evenly */
+  align-items: center; /* Vertically align items */
+  margin-top: 25px;
 }
 
-.delete-btn {
-  color: red;
-}
-
-.update-btn {
-  background: blue;
+.form-buttons .delete-btn {
+  /* Optional: Style the delete button */
+  /* Example: */
+  background-color: #ff6347; /* Tomato red */
   color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-buttons .close-btn,
+.form-buttons .update-btn {
+  /* Optional: Style the close and update buttons */
+  /* Example: */
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 0px; /* Add some space between close and update */
+}
+
+.form-buttons .close-btn {
+  background-color: #ccc; /* grey */
+  color: black;
 }
