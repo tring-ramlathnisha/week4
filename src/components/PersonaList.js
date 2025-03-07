@@ -18,16 +18,6 @@ const PersonaList = ({ onLogout }) => {
       <br/>
 
       <div className="persona-grid">
-        {/*{personas.map((persona) => (
-          <div key={persona.id} className="persona-card" onClick={() => navigate(`/edit/${persona.id}`)}>
-            <img src={persona.image} alt={persona.name} className="persona-image" />
-            <div className="persona-content">
-              <h3 className="persona-name">{persona.name}</h3>
-              <p className="persona-quote" dangerouslySetInnerHTML={{ __html: `${persona.quote}` }}></p>
-              <p className="persona-updated">Last updated:{getLastModifiedTime(persona)} </p>
-            </div>
-          </div>
-        ))}*/}
         {personas.map((persona) => {
           const lastModified = PersonaLastModified(persona.id); // Use the hook here
 
