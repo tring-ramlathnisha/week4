@@ -73,6 +73,17 @@ const PersonaForm = ({ isEdit }) => {
     navigate("/persona");
   };
 
+  const modules = {
+    toolbar: [
+      [{ header: [1,2,3,4,5,6,false] }], [{ font: ['sans-serif', 'serif'] }],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      ['bold', 'italic', 'underline','strike'],
+      ['link'],
+      [{color:['black','white','red','green','blue','grey','brown','yellow','orange']}],
+      ['clean'],
+    ],
+  };
+
   return (
     <div className="persona-form">
       <div className="banner" style={{ backgroundImage: `url(${persona.image})` }}>
@@ -87,15 +98,15 @@ const PersonaForm = ({ isEdit }) => {
         </div>
 
         <div className="grid-container">
-          <div className="grid-item"><label>Notable Quote</label><ReactQuill value={persona.quote} onChange={(value) => handleChange("quote", value)} /></div>
-          <div className="grid-item"><label>Description</label><ReactQuill value={persona.description} onChange={(value) => handleChange("description", value)} /></div>
-          <div className="grid-item"><label>Attitudes/Motivations</label><ReactQuill value={persona.attitudes} onChange={(value) => handleChange("attitudes", value)} /></div>
+          <div className="grid-item"><label>Notable Quote</label><ReactQuill modules={modules} value={persona.quote} onChange={(value) => handleChange("quote", value)} /></div>
+          <div className="grid-item"><label>Description</label><ReactQuill modules={modules} value={persona.description} onChange={(value) => handleChange("description", value)} /></div>
+          <div className="grid-item"><label>Attitudes/Motivations</label><ReactQuill modules={modules} value={persona.attitudes} onChange={(value) => handleChange("attitudes", value)} /></div>
         </div>
         <br />
         <div className="grid-container">
-          <div className="grid-item"><label>Pain Points</label><ReactQuill value={persona.painPoints} onChange={(value) => handleChange("painPoints", value)} /></div>
-          <div className="grid-item"><label>Jobs/Needs</label><ReactQuill value={persona.jobs} onChange={(value) => handleChange("jobs", value)} /></div>
-          <div className="grid-item"><label>Activities</label><ReactQuill value={persona.activities} onChange={(value) => handleChange("activities", value)} /></div>
+          <div className="grid-item"><label>Pain Points</label><ReactQuill modules={modules} value={persona.painPoints} onChange={(value) => handleChange("painPoints", value)} /></div>
+          <div className="grid-item"><label>Jobs/Needs</label><ReactQuill modules={modules} value={persona.jobs} onChange={(value) => handleChange("jobs", value)} /></div>
+          <div className="grid-item"><label>Activities</label><ReactQuill modules={modules} value={persona.activities} onChange={(value) => handleChange("activities", value)} /></div>
         </div>
 
         <div className="form-buttons">

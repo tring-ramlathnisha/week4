@@ -12,9 +12,12 @@ const Login = ({ setIsAuthenticated }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedUsers = JSON.parse(localStorage.getItem("users"))|| [];
+    const storedUser=storedUsers.find(
+      (user)=>user.email===credentials.email && user.password===credentials.password
+    )
 
-    if (!storedUser || storedUser.email !== credentials.email || storedUser.password !== credentials.password) {
+    if (!storedUser) {
       alert("Invalid credentials! Please try again.");
       return;
     }

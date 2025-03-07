@@ -21,7 +21,7 @@ const Home = () => {
         </Link>
       </div>
     </nav>
-    <h1>Welcome to the Home page</h1>
+    <h1>Welcome to Home page</h1>
     </>
   );
 };

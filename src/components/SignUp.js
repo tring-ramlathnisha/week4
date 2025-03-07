@@ -12,8 +12,9 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    localStorage.setItem("user", JSON.stringify(user)); // Store user data
+    const existingUsers=JSON.parse(localStorage.getItem("users")) || [];
+    existingUsers.push(user);
+    localStorage.setItem("users", JSON.stringify(existingUsers)); // Store user data
     alert("Signup successful! You can now log in.");
     navigate("/login");
   };
