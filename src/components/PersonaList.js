@@ -19,7 +19,7 @@ const PersonaList = ({ onLogout }) => {
 
       <div className="persona-grid">
         {personas.map((persona) => {
-          const lastModified = PersonaLastModified(persona.id); // Use the hook here
+          const lastModified = PersonaLastModified(persona.id); 
 
           return (
             <div

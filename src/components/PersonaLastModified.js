@@ -29,7 +29,11 @@ const PersonaLastModified = (personaId) => {
       return `${hours} hours ago`;
     }
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    if (days<31){
     return `${days} days ago`;
+    }
+    const months =Math.floor(diff/(1000*60*60*24*30));
+    return `${months} Months ago`;
   };
 
   return getLastModifiedTime();
